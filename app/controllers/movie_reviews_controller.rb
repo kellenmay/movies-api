@@ -3,9 +3,9 @@ class MovieReviewsController < ApplicationController
 
   # GET /movie_reviews
   def index
-    @movie_reviews = MovieReview.all
+    movie_reviews = MovieReview.all
 
-    render json: @movie_reviews
+    render json: movie_reviews
   end
 
   # GET /movie_reviews/1
@@ -15,12 +15,11 @@ class MovieReviewsController < ApplicationController
 
   # POST /movie_reviews
   def create
-    @movie_review = MovieReview.new(movie_review_params)
-
-    if @movie_review.save
-      render json: @movie_review, status: :created, location: @movie_review
+    movie_review = MovieReview.new(movie_review_params)
+    if movie_review.save
+      render json: movie_review, status: :created, location: movie_review
     else
-      render json: @movie_review.errors, status: :unprocessable_entity
+      render json: movie_review.errors, status: :unprocessable_entity
     end
   end
 
@@ -46,6 +45,6 @@ class MovieReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movie_review_params
-      params.require(:movie_review).permit(:comment)
+      params.require(:movie_review).permit(:comment, :reviewer, :movie_id)
     end
 end

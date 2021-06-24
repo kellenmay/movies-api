@@ -9,3 +9,5 @@
 
 
   movies = Movie.create([{ title: 'Star Wars' }, { title: 'Lord of the Rings' }])
+
+  
