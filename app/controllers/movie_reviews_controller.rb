@@ -3,8 +3,7 @@ class MovieReviewsController < ApplicationController
 
   # GET /movie_reviews
   def index
-
-    @movie_reviews = MovieReview.all
+    @movie_reviews = MovieReview.all.select {|r| r.movie_id == params[:movie_id].to_i}
     render json: @movie_reviews
   end
 
