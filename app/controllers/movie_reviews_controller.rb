@@ -34,6 +34,7 @@ class MovieReviewsController < ApplicationController
   # DELETE /movie_reviews/1
   def destroy
     @movie_review.destroy
+    render json: {message: 'Review successfully deleted'}
   end
 
   private
