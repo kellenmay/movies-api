@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
   # DELETE /movies/1
   def destroy
     @movie.destroy
-    render json: {message: 'Movie successfully deleted'}
+    render json: {message: 'Review successfully deleted'}
   end
 
   private
